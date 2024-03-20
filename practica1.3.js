@@ -11,8 +11,14 @@ class Size {        //1. Clase Size
   }
   // Modifica el tamaño de la ventana
   resize(newWidth = 80, newHeigth = 60){
-    this.Width = newWidth;
-    this.Heigth = newHeigth;
+    if(width <= 1 || height <= 1){ // Verifica si el tamaño es inválido
+      this.Width = 1;
+      this.Heigth = 1;
+      console.log(`El tamaño es inválido, se inicializo la ventana con el minimo tamaño: (1,1)`);
+    }else{
+      this.Width = width;
+      this.Heigth = height;
+    }
   }
   // Muestra el tamaño de la ventana
   showSize(){
