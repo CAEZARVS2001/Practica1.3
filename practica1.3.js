@@ -28,4 +28,25 @@ class ProgramWindonw {  //3. Clase Programwindow
     this.size = new Size ();
     this.position = new Position();
   }
+
+  resize(newSize) {  // 4.a. Metodo resize para resimensionar la ventana que acepta como parametro un tipo size
+    this.size.resize(newSize.width, newSize.height);
+  }
+
+  mover(newPosition){  //5.a. Metodo para mover la ventana
+
+    this.position = newPosition;
+  }
+
+}
+
+function changeWindow(programWindow) {   //6. funcion changeWindow que cambia la ventana de un programa
+  // Cambiar el tamaño de la ventana
+  programWindow.size.resize(400, 300);
+  
+  // Cambiar la posición de la ventana
+  programWindow.position.move(100, 150);
+  
+  // Devolver la instancia de ProgramWindow con los cambios aplicados
+  return programWindow;
 }
