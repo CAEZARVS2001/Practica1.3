@@ -48,13 +48,13 @@ class Position {     //2. Clase Position
   }
 }
 
-class ProgramWindonw {  //3. Clase Programwindow
+class ProgramWindow {  //3. Clase Programwindow
   constructor() {
     this.screenSize = new Size (800, 600);
     this.size = new Size ();
     this.position = new Position();
   }
-  // Modificar el tamaño de la ventana del programa
+  // 4. Modificar el tamaño de la ventana del programa
   resize(newSize){  
     if((newSize.Width > (this.screenSize.Width - this.position.X)) && (newSize.Heigth > (this.screenSize.Heigth - this.position.Y))){
       newSize.resize(this.screenSize.Width - this.position.X, this.screenSize.Heigth - this.position.Y);
@@ -69,7 +69,7 @@ class ProgramWindonw {  //3. Clase Programwindow
       this.size = newSize;
     }
   }
-  // Mueve la posición de la ventana del programa
+  // 5. Mueve la posición de la ventana del programa
   move(newPosition){
     if((newPosition.X > (this.screenSize.Width - this.size.Width)) && (newPosition.Y > (this.screenSize.Heigth - this.size.Heigth))){
         newPosition.move(this.screenSize.Width - this.size.Width, this.screenSize.Heigth - this.size.Heigth);
@@ -86,11 +86,23 @@ class ProgramWindonw {  //3. Clase Programwindow
   }
 }
 
+function changeWindow(programWindow) {   //6. funcion changeWindow que cambia la ventana de un programa
+  // Cambiar el tamaño de la ventana
+  programWindow.size.resize(400, 300);
+  
+  // Cambiar la posición de la ventana
+  programWindow.position.move(100, 150);
+  
+  // Devolver la instancia de ProgramWindow con los cambios aplicados
+  return programWindow;
+}
+
 // Crear una ventana de tamaño size
 const v1 = new Size(1080, 764);
 v1.showSize();
 v1.resize();
 v1.showSize();
+console.log();
 
 // Crear una ventana con cierta posición
 const v2 = new Position();
@@ -99,7 +111,7 @@ v2.move(100,200);
 v2.showPosition();
 
 // Crear una ventana del programa
-const ventana = new ProgramWindonw();
+const ventana = new ProgramWindow();
 
 // Mostrar el tamaño de la pantalla
 console.log("\nEl tamaño de la pantalla es:");
@@ -118,3 +130,10 @@ ventana.position.showPosition();
 ventana.move(new Position(200, 100));
 console.log("La nueva posición es:");
 ventana.position.showPosition();
+console.log();
+
+// Ejecutar la función changeWindow
+const programWindow1 = new ProgramWindow();
+changeWindow(programWindow1);
+programWindow1.size.showSize();
+programWindow1.position.showPosition();
