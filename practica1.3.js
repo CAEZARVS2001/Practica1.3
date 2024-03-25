@@ -11,13 +11,13 @@ class Size {        //1. Clase Size
   }
   // Modifica el tamaño de la ventana
   resize(newWidth = 80, newHeigth = 60){
-    if(width <= 1 || height <= 1){ // Verifica si el tamaño es inválido
+    if(newWidth <= 1 || newHeigth <= 1){ // Verifica si el tamaño es inválido
       this.Width = 1;
       this.Heigth = 1;
       console.log(`El tamaño es inválido, se inicializo la ventana con el minimo tamaño: (1,1)`);
     }else{
-      this.Width = width;
-      this.Heigth = height;
+      this.Width = newWidth;
+      this.Heigth = newHeigth;
     }
   }
   // Muestra el tamaño de la ventana
@@ -126,14 +126,14 @@ ventana.screenSize.showSize();
 // Modificar el tamaño de la ventana
 console.log("\nEl tamaño actual de la ventana es:")
 ventana.size.showSize();
-ventana.resize(new Size(400, 400));
+ventana.resize(new Size(900, 700));
 console.log("El nuevo tamaño es:");
 ventana.size.showSize();
 
 // Modificar la posición de la ventana del programa
 console.log("\nLa posición actual de la ventana es:")
 ventana.position.showPosition();
-ventana.move(new Position(200, 100));
+ventana.move(new Position(500, 100));
 console.log("La nueva posición es:");
 ventana.position.showPosition();
 console.log();
